@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Travel webpage</title>
+        <style>
+            body{
+                background-color:rgb(230, 230, 230);
+            }
+            .places{
+                background-color:rgb(255, 0, 77);
+            }
+            #citis{
+                color:rgb(255, 0, 77);
+            }
+        </style>
+    </head>
+    <body>
+    
+        <h1>Travel to <em>Japan</em>.</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" alt="Flag of Japan" width="300" height="200">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/FujiWestView2157.jpg/500px-FujiWestView2157.jpg" alt="Mount Fuji, Japan" width="300" height="200">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Map_of_the_prefectures_of_Japan_with_claimed_territories.png/960px-Map_of_the_prefectures_of_Japan_with_claimed_territories.png" alt="Mount Fuji, Japan" width="300" height="200">
+
+        <h2>About <strong><em>Japan</em></strong>.</h2>
+        <em><p>Japan, a mountainous island nation in East Asia, is a technologically advanced parliamentary constitutional monarchy with a population of over 123 million. </p></em> <p>Comprising four main islands—<strong id="citis">Honshu, Hokkaido, Kyushu, and Shikoku</strong>—it features a highly urbanized population on the coast, with Tokyo as its capital. Known for its unique, rich culture, stunning natural beauty, and significant global economic influence, Japan is characterized by its blend of ancient traditions and modernity. </p>
+    </body>
+    <h2>Places Where You Should Go</h2>
+    <ul>
+        <li class="places">Tokyo</li>
+        <li class="places">Historic Kyoto</li>
+        <li class="places">Osaka</li>
+    </ul>
+    
+    
+</html>
