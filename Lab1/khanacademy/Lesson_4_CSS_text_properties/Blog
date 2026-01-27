@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Blog</title>
+        <style>
+            body{
+                line-height:20px;
+            }
+            h2{
+                font-style: italic;
+                
+            }
+            h6{
+                font-size: 12px;
+            }
+            p{
+                font-family: monospace;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <h1>Yerasyl's blog</h1>
+        <h3>Contents</h3>
+        <ul>
+            <li ><a href="#First">First post!</a></li>
+             <li ><a href="#Second">Second post!</a></li>
+              <li ><a href="#Third">Third post!</a></li>
+        </ul>
+        
+        <h2 id="First">First post</h2>
+        <h6>Posted 20.08.2024</h6>
+        
+        <p>I will go to KBTU.</p>
+        
+        
+        <h2 id="Second">Second post</h2>
+        <h6>Posted 24.12.2024</h6>
+        
+        <p>I finish my first semestr in KBTU.</p>
+        
+        
+        <h2 id="Third">Third post</h2>
+        <h6>Posted 25.05.2025</h6>
+        
+        <p>I finished my first year in KBTU.</p>
+        
+    </body>
+</html>

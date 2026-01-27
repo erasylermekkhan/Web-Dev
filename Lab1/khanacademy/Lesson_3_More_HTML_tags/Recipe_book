@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project: Recipe book</title>
+        <meta charset="utf-8">
+        <style>
+        </style>
+    </head>
+    <body>
+       
+        <h1>Yerasyl's Recipe Book</h1>
+        
+        <h2>Contents:</h2>
+        
+        <ol>
+            <li><a href="#Omlet">Omlet</a></li>
+            <li><a href="#Plov">Plov</a></li>
+            <li><a href="#Burger">Burger</a></li>
+        </ol>
+        
+        <h2 id="Omlet">Omlet</h2>
+        
+        <ul>
+            <li>Time: 15-20 minut</li>
+            <li>Serves: 1</li>
+        </ul>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Eggs</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Oil</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Tomato</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>How to cook?</strong></p>
+        
+    <p><em>Source: <a href="https://www.instructables.com/Easy-Omelet-Omelette/">How to cook Omlet.</a></em></p>
+    
+    <!-- -->
+    
+        <h2 id="Plov">Plov</h2>
+            
+            <ul>
+                <li>Time: 30-40 minut</li>
+                <li>Serves: 1</li>
+            </ul>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ingredients</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rice</td>
+                        <td>200g</td>
+                    </tr>
+                    <tr>
+                        <td>Meet</td>
+                        <td>250g</td>
+                    </tr>
+                    <tr>
+                        <td>Carrot</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>How to cook?</strong></p>
+            
+        <p><em>Source: <a href="https://natashaskitchen.com/beef-plov-beef-rice-pilaf-recipe/">How to cook Plov.</a></em></p>
+        
+        <!-- -->
+        
+        <h2 id="Burger">Burger</h2>
+            
+            <ul>
+                <li>Time: 20-30 minut</li>
+                <li>Serves: 1</li>
+            </ul>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ingredients</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Steak</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Bread</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Tomato</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Sous</td>
+                        <td>50g</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>How to cook?</strong></p>
+            
+        <p><em>Source: <a href="https://www.thekitchn.com/how-to-make-burgers-on-the-stovetop-cooking-lessons-from-the-kitchn-217722">How to cook Burger.</a></em></p>
+    </body>
+</html>
