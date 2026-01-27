@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Event invite</title>
+        <style>
+            body{
+                background-color: rgb(199, 199, 199);
+                font-family: monospace;
+                margin-left: 25%;
+                margin-top: 25%;
+            }
+            #pad{
+                margin-left: 25px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <h1 id="pad">You're invited!</h1>
+        <h2 id="pad">To concert!</h2>
+        
+        <p id="pad">The details:</p>
+        <ul>
+            <li><strong>Singer:</strong> <em>Sadraddin.</em></li>
+            <li><strong>Date:</strong> <em>30.02.2026.</em></li>
+            <li><strong>Time:</strong> <em>18:00.</em></li>
+            <li><strong>PLace:</strong> <em>In front of KBTU.</em></li>
+        </ul>
+        
+    </body>
+</html>
