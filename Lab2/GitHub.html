@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pricing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #010409;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .github-logo {
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .github-logo svg {
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px 12px 8px 36px;
+            color: #c9d1d9;
+            font-size: 14px;
+            width: 250px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #58a6ff;
+        }
+
+        .search-input::placeholder {
+            color: #6e7681;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6e7681;
+            font-size: 14px;
+        }
+
+        .nav-button {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid #30363d;
+        }
+
+        .nav-button.sign-in {
+            background-color: transparent;
+            color: #c9d1d9;
+        }
+
+        .nav-button.sign-in:hover {
+            color: #ffffff;
+            border-color: #58a6ff;
+        }
+
+        .nav-button.sign-up {
+            background-color: #238636;
+            color: #ffffff;
+            border-color: rgba(240, 246, 252, 0.1);
+        }
+
+        .nav-button.sign-up:hover {
+            background-color: #2ea043;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #c9d1d9;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            color: #8b949e;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #238636;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #2ea043;
+        }
+
+        /* Pricing Cards Section */
+        .pricing-section {
+            padding: 60px 20px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: #58a6ff;
+        }
+
+        .pricing-card.recommended {
+            border: 2px solid #1f6feb;
+            box-shadow: 0 0 0 1px #1f6feb;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1f6feb;
+            color: #ffffff;
+            padding: 4px 16px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .price-currency {
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .price-unit {
+            font-size: 16px;
+            color: #8b949e;
+        }
+
+        .price-period {
+            font-size: 14px;
+            color: #8b949e;
+            text-align: center;
+        }
+
+        .card-button {
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 24px;
+            transition: all 0.2s;
+        }
+
+        .button-primary {
+            background-color: #238636;
+            color: #ffffff;
+        }
+
+        .button-primary:hover {
+            background-color: #2ea043;
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+        }
+
+        .button-secondary:hover {
+            border-color: #58a6ff;
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            font-size: 14px;
+            color: #c9d1d9;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #238636;
+            font-weight: bold;
+        }
+
+        /* Add-ons Section */
+        .addons-section {
+            padding: 80px 20px;
+            background-color: #0d1117;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #8b949e;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .addon-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .addon-card:hover {
+            transform: translateY(-4px);
+            border-color: #58a6ff;
+        }
+
+        .addon-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .addon-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1f6feb 0%, #58a6ff 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .addon-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .addon-description {
+            font-size: 14px;
+            color: #8b949e;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .addon-price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .addon-price-currency {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .addon-price-amount {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .addon-price-unit {
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .addon-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .addon-features li {
+            padding: 6px 0;
+            font-size: 13px;
+            color: #8b949e;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .addon-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #58a6ff;
+        }
+
+        .addon-button {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .addon-button:hover {
+            border-color: #58a6ff;
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 32px;
+            }
+
+            .hero-section p {
+                font-size: 16px;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .addons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-right {
+                gap: 8px;
+            }
+
+            .nav-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="github-logo">
+                    <svg height="32" viewBox="0 0 16 16" width="32">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Platform</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Open Source</a></li>
+                    <li><a href="#">Enterprise</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search or jump to...">
+                </div>
+                <a href="#" class="nav-button sign-in">Sign in</a>
+                <a href="#" class="nav-button sign-up">Sign up</a>
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Try the Copilot-powered platform</h1>
+            <p>We plan to freeze a lot you can do with GitHub. There's plenty packed all of it into a single price tag from that includes GitHub Enterprise, Copilot and Advanced Security.</p>
+            <a href="#" class="cta-button">Start free for 30 days</a>
+        </div>
+    </section>
+
+    <!-- Pricing Cards Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-cards">
+                <!-- Free Card -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Free</h2>
+                        <p class="card-subtitle">The basics for individuals and organizations</p>
+                        <div class="price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-unit">USD</span>
+                        </div>
+                        <p class="price-period">per user/month</p>
+                    </div>
+                    <button class="card-button button-secondary">Join for free</button>
+                    <ul class="features-list">
+                        <li>Unlimited public/private repositories</li>
+                        <li>Automated security and version updates</li>
+                        <li>2,000 CI/CD minutes/month</li>
+                        <li>500MB of Packages storage</li>
+                        <li>Issues & Projects</li>
+                        <li>Community support</li>
+                    </ul>
+                </div>
+
+                <!-- Team Card -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Team</h2>
+                        <p class="card-subtitle">Advanced collaboration for individuals and organizations</p>
+                        <div class="price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">4</span>
+                            <span class="price-unit">USD</span>
+                        </div>
+                        <p class="price-period">per user/month</p>
+                    </div>
+                    <button class="card-button button-primary">Continue with Team</button>
+                    <ul class="features-list">
+                        <li>Everything included in Free, plus...</li>
+                        <li>Access to GitHub Codespaces</li>
+                        <li>Repository rules</li>
+                        <li>Multiple reviewers in pull requests</li>
+                        <li>Draft pull requests</li>
+                        <li>Code owners</li>
+                        <li>Pages and Wikis</li>
+                        <li>Environment deployment branches and secrets</li>
+                        <li>3,000 CI/CD minutes/month</li>
+                        <li>Web-based support</li>
+                    </ul>
+                </div>
+
+                <!-- Enterprise Card -->
+                <div class="pricing-card recommended">
+                    <div class="recommended-badge">Recommended</div>
+                    <div class="card-header">
+                        <h2 class="card-title">Enterprise</h2>
+                        <p class="card-subtitle">Security, compliance, and flexible deployment</p>
+                        <div class="price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">21</span>
+                            <span class="price-unit">USD</span>
+                        </div>
+                        <p class="price-period">per user/month</p>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 24px;">
+                        <button class="card-button button-primary" style="margin-bottom: 0;">Start a free trial</button>
+                        <button class="card-button button-secondary" style="margin-bottom: 0;">Contact Sales</button>
+                    </div>
+                    <ul class="features-list">
+                        <li>Everything included in Team, plus...</li>
+                        <li>SAML single sign-on</li>
+                        <li>Enterprise Managed Users</li>
+                        <li>User provisioning through SCIM</li>
+                        <li>Option to enable or disable multiple package hosting organizations</li>
+                        <li>Environment protection rules</li>
+                        <li>Repository rulesets</li>
+                        <li>Audit Log API</li>
+                        <li>SAML/OIDC SaaS & SaaS/P identity</li>
+                        <li>Publisher Shared Authority to OpenID Office</li>
+                        <li>Self-hosted runners</li>
+                        <li>Advanced auditing</li>
+                        <li>GitHub Connect</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Add-ons Section -->
+    <section class="addons-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Additional add-ons</h2>
+                <p class="section-description">Enhance your GitHub experience with powerful add-ons designed for teams and enterprises</p>
+            </div>
+            <div class="addons-grid">
+                <!-- GitHub Copilot -->
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <div class="addon-icon">🤖</div>
+                        <div>
+                            <h3 class="addon-title">GitHub Copilot</h3>
+                        </div>
+                    </div>
+                    <p class="addon-description">AI-powered code completion and suggestions to help you write code faster and with fewer errors.</p>
+                    <div class="addon-price">
+                        <span class="addon-price-currency">$</span>
+                        <span class="addon-price-amount">10</span>
+                        <span class="addon-price-unit">per user/month</span>
+                    </div>
+                    <ul class="addon-features">
+                        <li>AI-powered code suggestions</li>
+                        <li>Multi-line code completions</li>
+                        <li>Natural language to code</li>
+                        <li>Support for dozens of languages</li>
+                    </ul>
+                    <button class="addon-button">Learn more</button>
+                </div>
+
+                <!-- Advanced Security -->
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <div class="addon-icon">🔒</div>
+                        <div>
+                            <h3 class="addon-title">Advanced Security</h3>
+                        </div>
+                    </div>
+                    <p class="addon-description">Keep your code secure with code scanning, secret scanning, and dependency reviews.</p>
+                    <div class="addon-price">
+                        <span class="addon-price-currency">$</span>
+                        <span class="addon-price-amount">49</span>
+                        <span class="addon-price-unit">per committer/month</span>
+                    </div>
+                    <ul class="addon-features">
+                        <li>Code scanning with CodeQL</li>
+                        <li>Secret scanning alerts</li>
+                        <li>Dependency review</li>
+                        <li>Security advisories</li>
+                    </ul>
+                    <button class="addon-button">Learn more</button>
+                </div>
+
+                <!-- GitHub Actions -->
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <div class="addon-icon">⚡</div>
+                        <div>
+                            <h3 class="addon-title">GitHub Actions</h3>
+                        </div>
+                    </div>
+                    <p class="addon-description">Automate your workflow from idea to production with flexible CI/CD pipelines.</p>
+                    <div class="addon-price">
+                        <span class="addon-price-currency">$</span>
+                        <span class="addon-price-amount">0.008</span>
+                        <span class="addon-price-unit">per minute</span>
+                    </div>
+                    <ul class="addon-features">
+                        <li>Unlimited workflows</li>
+                        <li>Linux, Windows, macOS runners</li>
+                        <li>Matrix builds</li>
+                        <li>Hosted & self-hosted runners</li>
+                    </ul>
+                    <button class="addon-button">Learn more</button>
+                </div>
+
+                <!-- GitHub Packages -->
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <div class="addon-icon">📦</div>
+                        <div>
+                            <h3 class="addon-title">GitHub Packages</h3>
+                        </div>
+                    </div>
+                    <p class="addon-description">Host and manage packages alongside your source code with integrated package registry.</p>
+                    <div class="addon-price">
+                        <span class="addon-price-currency">$</span>
+                        <span class="addon-price-amount">0.25</span>
+                        <span class="addon-price-unit">per GB/month</span>
+                    </div>
+                    <ul class="addon-features">
+                        <li>npm, Docker, Maven support</li>
+                        <li>Integrated with workflows</li>
+                        <li>Public & private packages</li>
+                        <li>Access control</li>
+                    </ul>
+                    <button class="addon-button">Learn more</button>
+                </div>
+
+                <!-- Codespaces -->
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <div class="addon-icon">💻</div>
+                        <div>
+                            <h3 class="addon-title">Codespaces</h3>
+                        </div>
+                    </div>
+                    <p class="addon-description">Cloud-hosted development environments accessible from anywhere, anytime.</p>
+                    <div class="addon-price">
+                        <span class="addon-price-currency">$</span>
+                        <span class="addon-price-amount">0.18</span>
+                        <span class="addon-price-unit">per hour</span>
+                    </div>
+                    <ul class="addon-features">
+                        <li>Pre-configured environments</li>
+                        <li>VS Code in the browser</li>
+                        <li>Powerful cloud compute</li>
+                        <li>Instant setup</li>
+                    </ul>
+                    <button class="addon-button">Learn more</button>
+                </div>
+
+                <!-- Enterprise Support -->
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <div class="addon-icon">🎯</div>
+                        <div>
+                            <h3 class="addon-title">Premium Support</h3>
+                        </div>
+                    </div>
+                    <p class="addon-description">Get priority support with faster response times and dedicated technical account management.</p>
+                    <div class="addon-price">
+                        <span class="addon-price-currency">$</span>
+                        <span class="addon-price-amount">999</span>
+                        <span class="addon-price-unit">per month</span>
+                    </div>
+                    <ul class="addon-features">
+                        <li>24/7 priority support</li>
+                        <li>Technical account manager</li>
+                        <li>30-minute response time</li>
+                        <li>Quarterly business reviews</li>
+                    </ul>
+                    <button class="addon-button">Learn more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
